@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "hello-charan-image"
         CONTAINER_NAME = "hello-charan-container"
         BRANCH = "main"
-        REPO_URL = "https://github.com/your-username/your-java-repo.git" // 🔁 Update this
+        REPO_URL = "https://github.com/charan-creator-maker/cherry-repo.git" // 🔁 Update this
     }
 
     stages {
