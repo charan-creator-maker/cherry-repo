@@ -6,6 +6,7 @@ pipeline {
         CONTAINER_NAME = "hello-charan-container"
         BRANCH = "main"
         REPO_URL = "https://github.com/charan-creator-maker/cherry-repo"
+    }    
 
     stages {
         stage('Clone') {
