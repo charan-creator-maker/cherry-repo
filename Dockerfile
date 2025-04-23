@@ -1,3 +1,3 @@
-FROM openjdk:8-jdk-alpine
-COPY target/hello-charan.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM tomcat:9.0
+COPY target/*.war /usr/local/tomcat/webapps/app.war
+
