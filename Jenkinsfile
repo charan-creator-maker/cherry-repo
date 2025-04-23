@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/charan-creator-maker/cherry-repo.git'
+                git url: 'https://github.com/charan-creator-maker/cherry-repo.git',branch:'main'
             }
         }
 
