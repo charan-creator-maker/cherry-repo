@@ -1,17 +1,18 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven_3.8.1' // Configure this Maven in Jenkins Global Tools
+    }
+
     environment {
-        IMAGE_NAME = "hello-charan-image"
-        CONTAINER_NAME = "hello-charan-container"
-        BRANCH = "main"
-        REPO_URL = "https://github.com/charan-creator-maker/cherry-repo"
-    }    
+        IMAGE_NAME = 'myapp:latest'
+    }
 
     stages {
         stage('Clone') {
             steps {
-                git branch: "${BRANCH}", url: "${REPO_URL}"
+                git 'https://github.com/your-username/ci-cd-java-docker.git'
             }
         }
 
@@ -23,29 +24,21 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    dockerImage = docker.build("${IMAGE_NAME}")
-                }
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Run Docker Container') {
             steps {
-                sh """
-                if [ \$(docker ps -q -f name=${CONTAINER_NAME}) ]; then
-                    docker stop ${CONTAINER_NAME}
-                    docker rm ${CONTAINER_NAME}
-                fi
-                """
+                sh 'docker run -d -p 8080:8080 --name myapp-container $IMAGE_NAME'
             }
         }
+    }
 
-        stage('Run New Container') {
-            steps {
-                script {
-                    dockerImage.run("-d --name ${CONTAINER_NAME} -p 8080:8080")
-                }
-            }
+    post {
+        always {
+            echo 'Cleaning up...'
+            sh 'docker rm -f myapp-container || true'
         }
     }
 }
