@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven_3.8.1' // Configure this Maven in Jenkins Global Tools
-    }
+    
 
     environment {
         IMAGE_NAME = 'myapp:latest'
