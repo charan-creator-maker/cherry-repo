@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/your-username/ci-cd-java-docker.git'
+                git 'https://github.com/charan-creator-maker/cherry-repo.git'
             }
         }
 
