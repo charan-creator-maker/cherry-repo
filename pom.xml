@@ -18,6 +18,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+     <web-app>
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.example.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+</web-app>
+    
+
     <dependencies>
         <!-- Servlet API (provided by Tomcat at runtime) -->
         <dependency>
