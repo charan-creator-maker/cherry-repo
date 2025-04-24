@@ -9,8 +9,32 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source> <!-- Java version -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- Servlet API dependency (provided by Tomcat) -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>simple-webapp</finalName>
+
+        <plugins>
+            <!-- Define the version for maven-war-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.0</version>  <!-- You can try 3.2.3 if this doesn't work -->
+            </plugin>
+        </plugins>
     </build>
 
 </project>
