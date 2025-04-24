@@ -23,7 +23,7 @@
     </dependencies>
 
     <build>
-        <finalName>simple-webapp</finalName>
+        <finalName>mywebapp</finalName>
 
         <plugins>
             <!-- Define the version for maven-war-plugin -->
